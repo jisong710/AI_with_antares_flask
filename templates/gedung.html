@@ -1,0 +1,26 @@
+<form class="w3-container" action="/gedung?halaman=gedung" method="POST" >
+    <h2>Masukkan Gedung</h2>
+    <p><input class="w3-input w3-hover-green" type="text" name="nama_gedung" placeholder="nama gedung"></p>
+    <p><input class="w3-input w3-hover-green" type="text" name="gol" placeholder="golongan daya"></p>
+    <input type="submit" class="w3-button w3-teal" value="submit">
+</form>
+<br>
+<div class="w3-container">
+    <h2>data gedung</h2>
+    <div class="w3-responsive">
+    <table class="w3-table-all w3-text-black">
+    <tr>
+      <th>Nama Gedung</th>
+      <th>Golongan Daya</th>
+      <th>action</th>
+    </tr>
+    {% for row in data1 %}
+    <tr>
+      <td>{{row[1]}}</td>
+      <td>{{row[2]}}</td>
+      <td><button class="w3-btn w3-green">edit</button><button class="w3-btn w3-red">delete</button></td>
+    </tr>
+    {% endfor %}
+    </table>
+    </div>
+</div>

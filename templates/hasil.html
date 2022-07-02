@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tugas Akhir Machine Learning
+</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="w3-black">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+  <!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" id="myNavbar">
+  <!-- Avatar image in top left corner -->
+  <img src="{{url_for('static', filename='img/gambar_telyu.png')}}" style="width: 100px; padding-bottom: 20px; padding-top: 10px;">
+  <a class="w3-bar-item w3-button w3-padding-large w3-hover-black" href="/">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  <a class="w3-bar-item w3-button w3-padding-large w3-hover-black" href="/?halaman=gedung">
+    <i class="fa fa-building w3-xxlarge"></i>
+    <p>GEDUNG</p>
+  </a>
+  <a  class="w3-bar-item w3-button w3-padding-large w3-hover-black" href="/?halaman=device">
+    <i class="fa fa-laptop w3-xxlarge"></i>
+    <p>DEVICE</p>
+  </a>
+  <a  class="w3-bar-item w3-button w3-padding-large w3-hover-black" href="/?halaman=waktu">
+    <i class="fa fa-clock-o w3-xxlarge"></i>
+    <p>WAKTU</p>
+  </a>
+  <a class="w3-bar-item w3-button w3-padding-large w3-hover-black" href="/?halaman=olah">
+    <i class="fa fa-gears w3-xxlarge"></i>
+    <p>OLAH</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a class="w3-bar-item w3-button" style="width:20% !important" href="/?halaman=akun">HOME</a>
+    <a class="w3-bar-item w3-button" style="width:20% !important" href="/?halaman=gedung">GEDUNG</a>
+    <a class="w3-bar-item w3-button" style="width:20% !important" href="/?halaman=device">DEVICE</a>
+    <a class="w3-bar-item w3-button" style="width:20% !important" href="/?halaman=waktu">WAKTU</a>
+    <a class="w3-bar-item w3-button" style="width:20% !important" href="/?halaman=olah">OLAH</a>
+  </div>
+</div>
+  
+<!-- Page Content -->
+<div class="w3-content w3-padding-64 w3-xlarge" id="container" >
+    <form class="w3-container" action="/machinelearn/?halaman=olah" method="POST">
+        <h2>simulasi algoritma</h2>
+        <p><select class="w3-select" name="gedung">
+          <option value="" disabled selected>nama Gedung</option>
+          {% for row in data1 %}
+          <option value="{{row[0]}}">{{row[1]}}</option>
+          {% endfor %}
+        </select></p>
+        <p><input class="w3-input w3-hover-green" type="text" name="durasi" placeholder="durasi(hari)"></p>
+        <p><input class="w3-input w3-hover-green" type="text" name="budget" placeholder="budget"></p>
+        <p><select class="w3-select" name="algoritma">
+            <option value="" disabled  name="algoritma" selected>masukkan metode algoritma</option>
+            <option value="pso" name="algoritma">algoritma PSO</option>
+            <option value="genetic" name="algoritma">algoritma Genetik</option>
+          </select></p>
+        <input type="submit" class="w3-button w3-teal" value="submit">
+    </form>
+    <div class="w3-container">
+        <h2>data device</h2>
+        <div class="w3-responsive">
+        <table class="w3-table-all w3-text-black">
+        <tr>
+          <th>Nama Device</th>
+          <th>jam menyala</th>
+        </tr>
+        {% for row in range(len) %}
+        <tr>
+          <td>{{nama_device[row]}}</td>
+          <td>{{data2[row]}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+        </div>
+        <p>maksimum pembayaran<br><input class="w3-input w3-hover-green" readonly type="text" value="Rp.{{biaya}}"></p>
+    </div>
+</div> 
+    <!-- Footer -->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+</body>
+</html>

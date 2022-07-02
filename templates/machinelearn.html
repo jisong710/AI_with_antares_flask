@@ -1,0 +1,35 @@
+<form class="w3-container" action="/machinelearn/?halaman=olah" method="POST">
+    <h2>simulasi algoritma</h2>
+    <p><select class="w3-select" name="gedung">
+      <option value="" disabled selected>nama Gedung</option>
+      {% for row in data1 %}
+      <option value="{{row[0]}}">{{row[1]}}</option>
+      {% endfor %}
+    </select></p>
+    <p><input class="w3-input w3-hover-green" type="text" name="durasi" placeholder="durasi(hari)"></p>
+    <p><input class="w3-input w3-hover-green" type="text" name="budget" placeholder="budget"></p>
+    <p><select class="w3-select" name="algoritma">
+        <option value="" disabled  name="algoritma" selected>masukkan metode algoritma</option>
+        <option value="pso" name="algoritma">algoritma PSO</option>
+        <option value="genetic" name="algoritma">algoritma Genetik</option>
+      </select></p>
+    <input type="submit" class="w3-button w3-teal" value="submit">
+</form>
+<div class="w3-container">
+    <h2>data device</h2>
+    <div class="w3-responsive">
+    <table class="w3-table-all w3-text-black">
+    <tr>
+      <th>Nama Device</th>
+      <th>jam menyala</th>
+    </tr>
+    {% for row in data2%}
+    <tr>
+      <td>device {{row}}</td>
+      <td>{{row}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    </div>
+</div>
+

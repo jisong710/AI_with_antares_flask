@@ -1,0 +1,44 @@
+<form class="w3-container" action="/device?halaman=device" method="POST">
+    <h2>Masukkan Device</h2>
+    <p><input class="w3-input w3-hover-green" type="text" name="nama" placeholder="nama_perangkat"></p>
+    <p><input class="w3-input w3-hover-green" type="text" name="daya" placeholder="daya"></p>
+    <p><input class="w3-input w3-hover-green" type="text" name="jumlah" placeholder="jumlah"></p>
+    <p><select class="w3-select" name="id_gedung">
+      <option value="" disabled selected>nama Gedung</option>
+      {% for row in data1 %}
+      <option value="{{row[0]}}" name="id_gedung">{{row[1]}}</option>
+      {% endfor %}
+    </select></p>
+    <p><select class="w3-select" name="prioritas">
+      <option value="" disabled selected>prioritas</option>
+      <option value="Low" name="prioritas">low</option>
+      <option value="Mid" name="prioritas">medium</option>
+      <option value="High" name="prioritas">high</option>
+    </select></p>
+    <input type="submit" class="w3-button w3-teal" value="submit">
+</form>
+<div class="w3-container">
+    <h2>data device</h2>
+    <div class="w3-responsive">
+    <table class="w3-table-all w3-text-black">
+    <tr>
+      <th>Nama Device</th>
+      <th>Gedung</th>
+      <th>jumlah</th>
+      <th>daya</th>
+      <th>kelas prioritas</th>
+      <th>action</th>
+    </tr>
+    {% for row in data2 %}
+    <tr>
+      <td>{{row[1]}}</td>
+      <td>{{row[3]}}</td>
+      <td>{{row[6]}}</td>
+      <td>{{row[2]}}</td>
+      <td>{{row[4]}}</td>
+      <td><button class="w3-btn w3-green">edit</button><button class="w3-btn w3-red">delete</button></td>
+    </tr>
+    {% endfor %}
+    </table>
+    </div>  
+</div>
