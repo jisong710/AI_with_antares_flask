@@ -9,6 +9,8 @@ from operator import add
 from functools import reduce 
 import matplotlib.pyplot as plt
 import pymysql
+import requests
+import json
 
 class algoritma_genetik:
   def connect(self):
@@ -551,6 +553,8 @@ class algoritma_genetik:
         print("Total Nilai fitness terbaik generasi ke-",m,":", fitnessterbaik[l])
         print("Total Biaya terbaik generasi ke-",m,":", Biaya[l])
         print("Kromosom terbaik generasi ke-",m,":", kromosomterbaik[l])
+        for i in range nama_device:
+          
         return kromosomterbaik[l],round(Biaya[l]),nama_device
 
     """**GRAFIK**"""
