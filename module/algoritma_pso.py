@@ -405,7 +405,7 @@ class algoritma_pso:
         print("Total Nilai fitness terbaik generasi ke-",m,":", fitness_terbaik[l])
         print("Total Biaya terbaik generasi ke-",m,":", Biaya[l])
         print("partikel terbaik generasi ke-",m,":", partikel_terbaik[l])
-        for i in range len(nama_device):
+        for i in range(len(nama_device)):
           data = { "m2m:cnt": {"rn": nama_device[i]}}
           headers = {"X-M2M-Origin":"5ea7fcd6a0249308:bcd27b2f5f71065f","Content-Type":"application/json;ty=3","Accept":"application/json"}
           requests.post('https://platform.antares.id:8443/~/antares-cse/antares-id/PenjadwalanListrik', headers=headers , data=data)
