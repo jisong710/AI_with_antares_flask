@@ -558,7 +558,7 @@ class algoritma_genetik:
           headers = {"X-M2M-Origin":"5ea7fcd6a0249308:bcd27b2f5f71065f","Content-Type":"application/json;ty=3","Accept":"application/json"}
           requests.post('https://platform.antares.id:8443/~/antares-cse/antares-id/PenjadwalanListrik', headers=headers , data=data)
           headers2 = {"X-M2M-Origin":"5ea7fcd6a0249308:bcd27b2f5f71065f","Content-Type":"application/json;ty=4","Accept":"application/json"}
-          data2 = {"m2m:cin": {"con": {"time remaining":Kromosomterbaik[l][i]}}
+          data2 = {"m2m:cin": {"con": {"time remaining":Kromosomterbaik[l][i]}}}
           requests.post('https://platform.antares.id:8443/~/antares-cse/antares-id/PenjadwalanListrik/'+nama_device[i], headers=headers2 , data=data2)
         return kromosomterbaik[l],round(Biaya[l]),nama_device
 
