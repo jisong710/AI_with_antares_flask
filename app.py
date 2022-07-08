@@ -104,6 +104,11 @@ def ML():
     datalogin = db.login(request.form);
     return render_template('hasil.html',len= len(data2), data2 = data2, biaya= biaya, nama_device = nama_device, data1 = data1)
 
+@app.route('/waktuJSON/',methods = ['POST', 'GET'])
+def waktuJSON():
+    data2 =db.readwaktu(None)
+    style = "style.css"
+    return data2
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
  
